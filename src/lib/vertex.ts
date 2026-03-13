@@ -1,4 +1,5 @@
 import { Quaternion, conjugate, multiplyQuaternion } from "@/lib/quaternion";
+import { RectangularPrism } from "@/lib/geometry";
 
 export type Vertex = {
   x: number;
@@ -14,4 +15,11 @@ export function rotateVertex(v: Vertex, r: Quaternion): Vertex {
   const qp = multiplyQuaternion(r, vertexToQuaternion(v));
   const result = multiplyQuaternion(qp, conjugate(r));
   return { x: result.x, y: result.y, z: result.z };
+}
+
+export function rotateVertices(
+  vertices: RectangularPrism,
+  rotation: Quaternion
+): RectangularPrism {
+  return vertices.map((v) => rotateVertex(v, rotation)) as RectangularPrism;
 }

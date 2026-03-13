@@ -1,8 +1,7 @@
 "use client";
 import { cn } from "@/lib/cn";
-import useCube from "@/lib/cube";
+import useCube from "@/hooks/useCube";
 import { Vertex } from "@/lib/vertex";
-import React from "react";
 
 export default function CubeAnimation() {
   const PLANE = 100;
@@ -41,8 +40,8 @@ export default function CubeAnimation() {
       className={cn(
         "absolute left-0 top-0 w-screen h-full",
         isDragging ? "cursor-grabbing z-50 touch-none" : "cursor-grab z-0",
-        "select-none touch-none", // Prevents text selection and touch events
-        "pointer-events-auto" // Ensures container can receive pointer events
+        "select-none touch-none",
+        "pointer-events-auto",
       )}
       style={{
         WebkitUserSelect: "none",
@@ -51,7 +50,7 @@ export default function CubeAnimation() {
       ref={containerRef}
     >
       <div
-        className="relative left-1/2 top-[150px] -translate-y-1/2 -translate-x-1/2 w-fit"
+        className="relative left-1/2 top-37.5 -translate-y-1/2 -translate-x-1/2 w-fit"
         style={{ pointerEvents: isDragging ? "none" : "auto" }}
       >
         {vertices.map(vertex)}

@@ -1,6 +1,5 @@
 "use client";
 import CubeAnimation from "@/components/cube-animation";
-import React from "react";
 
 export default function Header() {
   return (
