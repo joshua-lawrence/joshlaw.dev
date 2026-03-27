@@ -1,12 +1,16 @@
 "use client";
 import { cn } from "@/lib/cn";
-import useCube from "@/hooks/useCube";
+import useShape from "@/hooks/useShape";
 import { Vertex } from "@/lib/vertex";
 
-export default function CubeAnimation() {
+export default function ShapeAnimation({
+  shapeVertices,
+}: {
+  shapeVertices?: Vertex[];
+}) {
   const PLANE = 100;
   const SCALE = 50;
-  const { vertices, containerRef, isDragging } = useCube();
+  const { vertices, containerRef, isDragging } = useShape(shapeVertices);
 
   function project(v: Vertex) {
     return {
@@ -20,7 +24,7 @@ export default function CubeAnimation() {
     return (
       <div
         key={i}
-        className="select-none pointer-events-none"
+        className="select-none pointer-events-none opacity-60"
         style={{
           position: "absolute",
           left: `${x * SCALE}px`,
@@ -38,7 +42,7 @@ export default function CubeAnimation() {
   return (
     <div
       className={cn(
-        "absolute left-0 top-0 w-screen h-full",
+        "absolute top-0 left-1/2 -translate-x-1/2 w-screen h-full",
         isDragging ? "cursor-grabbing z-50 touch-none" : "cursor-grab z-0",
         "select-none touch-none",
         "pointer-events-auto",
@@ -50,7 +54,7 @@ export default function CubeAnimation() {
       ref={containerRef}
     >
       <div
-        className="relative left-1/2 top-37.5 -translate-y-1/2 -translate-x-1/2 w-fit"
+        className="relative left-1/2 top-1/2 -translate-y-1/2 -translate-x-1/2 w-fit"
         style={{ pointerEvents: isDragging ? "none" : "auto" }}
       >
         {vertices.map(vertex)}

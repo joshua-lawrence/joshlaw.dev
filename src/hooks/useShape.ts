@@ -1,6 +1,6 @@
 import { Quaternion, fromEulerDegrees, multiplyQuaternion } from "@/lib/quaternion";
-import { rotateVertices } from "@/lib/vertex";
-import { RectangularPrism, CUBE_VERTICES, CUBE_FACES } from "@/lib/geometry";
+import { Vertex, rotateVertices } from "@/lib/vertex";
+import { SHAPES } from "@/lib/geometry";
 import { useCallback, useEffect, useRef, useState } from "react";
 import usePointerDrag from "@/hooks/usePointerDrag";
 
@@ -10,15 +10,21 @@ const MOMENTUM_THRESHOLD = 0.001;
 const MAX_DT_MS = 50;
 const FRAME_MS = 16.67;
 
-export default function useCube() {
+export default function useShape(shapeVertices: Vertex[] = SHAPES[0].vertices) {
   const containerRef = useRef<HTMLDivElement>(null);
   const rotationRef = useRef<Quaternion>({ w: 1, x: 0, y: 0, z: 0 });
-  const [vertices, setVertices] = useState<RectangularPrism>(
-    [...CUBE_VERTICES] as RectangularPrism
+  const shapeRef = useRef(shapeVertices);
+  const [vertices, setVertices] = useState<Vertex[]>(
+    [...shapeVertices]
   );
 
+  useEffect(() => {
+    shapeRef.current = shapeVertices;
+    setVertices(rotateVertices(shapeVertices, rotationRef.current));
+  }, [shapeVertices]);
+
   const applyRotation = useCallback(() => {
-    setVertices(rotateVertices(CUBE_VERTICES, rotationRef.current));
+    setVertices(rotateVertices(shapeRef.current, rotationRef.current));
   }, []);
 
   const rotate = useCallback(
@@ -82,5 +88,5 @@ export default function useCube() {
     return () => cancelAnimationFrame(animationFrameId);
   }, [rotate, isDraggingRef, angularVelocityRef]);
 
-  return { faces: CUBE_FACES, vertices, containerRef, isDragging };
+  return { vertices, containerRef, isDragging };
 }

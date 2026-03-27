@@ -1,5 +1,5 @@
-import Header from "@/components/header";
-import ThemeToggle from "@/components/theme-toggle";
+import Footer from "@/components/footer";
+import Nav from "@/components/nav";
 import { cn } from "@/lib/cn";
 import "@/styles/globals.css";
 import type { Metadata } from "next";
@@ -11,6 +11,13 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-sans" });
 export const metadata: Metadata = {
   title: "Joshua Lawrence",
   description: "A personal site",
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  userScalable: false,
 };
 
 export default function RootLayout({
@@ -32,10 +39,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <ThemeToggle />
-          <div className="container mx-auto max-w-7xl min-h-screen justify-center">
-            <Header />
+          <div className="mx-auto max-w-2xl px-5 min-h-screen">
+            <Nav />
             <div className="w-full z-50">{children}</div>
+            <Footer />
           </div>
         </ThemeProvider>
       </body>

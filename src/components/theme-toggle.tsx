@@ -76,7 +76,7 @@ export default function ThemeToggle() {
   return (
     <button
       onClick={cycle}
-      className="fixed top-4 right-4 z-50 opacity-30 hover:opacity-60 transition-opacity p-1"
+      className="cursor-pointer opacity-50 hover:opacity-80 transition-opacity p-1 pointer-events-auto"
       aria-label={`Theme: ${theme}`}
     >
       {icons[theme as (typeof themes)[number]] ?? icons.system}
