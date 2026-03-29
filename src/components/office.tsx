@@ -1,6 +1,6 @@
 "use client";
 
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 
 const API_URL =
   "https://6ln2gas68i.execute-api.us-east-1.amazonaws.com/readings";
@@ -96,13 +96,28 @@ export default function Office() {
 
   const times = readings.map((r) => new Date(r.timestamp).getTime());
   const tMin = times[0];
-  const tRange = (times[times.length - 1] - tMin) || 1;
+  const tRange = times[times.length - 1] - tMin || 1;
   const latest = readings[readings.length - 1];
   const tempF = (latest.temperature_c * 9) / 5 + 32;
 
-  const co2Path = buildPath(readings.map((r) => r.co2_ppm), times, tMin, tRange);
-  const tempPath = buildPath(readings.map((r) => (r.temperature_c * 9) / 5 + 32), times, tMin, tRange);
-  const humPath = buildPath(readings.map((r) => r.humidity), times, tMin, tRange);
+  const co2Path = buildPath(
+    readings.map((r) => r.co2_ppm),
+    times,
+    tMin,
+    tRange,
+  );
+  const tempPath = buildPath(
+    readings.map((r) => (r.temperature_c * 9) / 5 + 32),
+    times,
+    tMin,
+    tRange,
+  );
+  const humPath = buildPath(
+    readings.map((r) => r.humidity),
+    times,
+    tMin,
+    tRange,
+  );
 
   const time = new Date(latest.timestamp).toLocaleTimeString([], {
     hour: "numeric",
@@ -114,7 +129,7 @@ export default function Office() {
       <span className="font-mono uppercase tracking-widest text-foreground/50">
         live office air quality · {time}
       </span>
-      <span className="inline-flex items-center gap-3 flex-wrap text-foreground/50">
+      <span className="inline-flex items-center gap-2 md:gap-4 flex-wrap text-foreground/50">
         <Spark d={co2Path} />
         <span>{latest.co2_ppm.toFixed(0)} ppm co₂</span>
         <Spark d={tempPath} />
