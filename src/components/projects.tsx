@@ -6,6 +6,12 @@ const projects = [
     stack: ["Swift", "SwiftUI"],
   },
   {
+    name: "truecursor",
+    href: "https://truecursor.com",
+    description: "Tremor-stabilizing cursor for macOS",
+    stack: ["Swift", "CoreML"],
+  },
+  {
     name: "sadiephoto",
     href: "https://www.sadiephoto.com",
     description: "Wedding photography site with Stripe checkout",
@@ -17,30 +23,95 @@ function NoxArt() {
   return (
     <svg viewBox="0 0 100 100" className="w-full aspect-[4/3]" xmlns="http://www.w3.org/2000/svg">
       <g stroke="currentColor" strokeWidth="0.5" fill="none">
-        <path d="M 10 35 C 30 15, 70 55, 90 35">
+        <line x1="24.8" y1="52" x2="42.3" y2="31.2" opacity="0.8">
           <animate
-            attributeName="d"
-            values="M 10 35 C 30 15, 70 55, 90 35; M 10 35 C 30 55, 70 15, 90 35; M 10 35 C 30 15, 70 55, 90 35"
-            dur="4s"
-            repeatCount="indefinite"
-          />
-        </path>
-        <path d="M 10 50 C 30 40, 70 60, 90 50" opacity="0.6">
-          <animate
-            attributeName="d"
-            values="M 10 50 C 30 40, 70 60, 90 50; M 10 50 C 30 60, 70 40, 90 50; M 10 50 C 30 40, 70 60, 90 50"
+            attributeName="opacity"
+            values="0.8; 0.25; 0.8"
             dur="6s"
+            begin="-4.8s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
             repeatCount="indefinite"
           />
-        </path>
-        <path d="M 10 65 C 30 62, 70 68, 90 65" opacity="0.3">
+        </line>
+        <line x1="39.1" y1="52" x2="47.8" y2="28" opacity="0.8">
           <animate
-            attributeName="d"
-            values="M 10 65 C 30 62, 70 68, 90 65; M 10 65 C 30 68, 70 62, 90 65; M 10 65 C 30 62, 70 68, 90 65"
-            dur="8s"
+            attributeName="opacity"
+            values="0.8; 0.25; 0.8"
+            dur="6s"
+            begin="-3.6s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
             repeatCount="indefinite"
           />
-        </path>
+        </line>
+        <line x1="50" y1="52" x2="50" y2="27" opacity="0.8">
+          <animate
+            attributeName="opacity"
+            values="0.8; 0.25; 0.8"
+            dur="6s"
+            begin="-2.4s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line x1="60.9" y1="52" x2="52.2" y2="28" opacity="0.8">
+          <animate
+            attributeName="opacity"
+            values="0.8; 0.25; 0.8"
+            dur="6s"
+            begin="-1.2s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line x1="75.2" y1="52" x2="57.7" y2="31.2" opacity="0.8">
+          <animate
+            attributeName="opacity"
+            values="0.8; 0.25; 0.8"
+            dur="6s"
+            begin="0s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line x1="22" y1="55" x2="78" y2="55" opacity="0.7" />
+        <line x1="36.2" y1="60" x2="31.1" y2="74" opacity="0.12">
+          <animate
+            attributeName="opacity"
+            values="0.12; 0.4; 0.12"
+            dur="6s"
+            begin="-3.6s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line x1="50" y1="60" x2="50" y2="74" opacity="0.12">
+          <animate
+            attributeName="opacity"
+            values="0.12; 0.4; 0.12"
+            dur="6s"
+            begin="-2.4s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </line>
+        <line x1="63.8" y1="60" x2="68.9" y2="74" opacity="0.12">
+          <animate
+            attributeName="opacity"
+            values="0.12; 0.4; 0.12"
+            dur="6s"
+            begin="-1.2s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </line>
       </g>
     </svg>
   );
@@ -50,17 +121,76 @@ function SadiephotoArt() {
   return (
     <svg viewBox="0 0 100 100" className="w-full aspect-[4/3]" xmlns="http://www.w3.org/2000/svg">
       <g stroke="currentColor" strokeWidth="0.5" fill="none">
-        <rect x="30" y="25" width="40" height="50" rx="1" opacity="0.4">
-          <animate attributeName="y" values="25; 20; 25" dur="7s" repeatCount="indefinite" />
-          <animate attributeName="height" values="50; 60; 50" dur="7s" repeatCount="indefinite" />
-        </rect>
-        <rect x="25" y="30" width="50" height="40" rx="1" opacity="0.8">
-          <animate attributeName="x" values="25; 20; 25" dur="5s" repeatCount="indefinite" />
-          <animate attributeName="width" values="50; 60; 50" dur="5s" repeatCount="indefinite" />
-        </rect>
-        <circle cx="50" cy="50" r="1" fill="currentColor" stroke="none">
-          <animate attributeName="opacity" values="0.1; 1; 0.1" dur="3.5s" repeatCount="indefinite" />
+        <g opacity="0.45">
+          <rect x="26" y="36" width="48" height="36" rx="3" />
+          <path d="M 41 36 L 43.5 31.5 L 56.5 31.5 L 59 36" />
+          <rect x="64" y="32.5" width="5" height="2.5" rx="1" />
+          <circle cx="34" cy="43" r="1.5" />
+          <animate
+            attributeName="opacity"
+            values="0.4; 0.65; 0.4"
+            dur="8s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </g>
+        <circle cx="50" cy="54" r="11" opacity="0.85" />
+        <path d="M 57 54 L 53.5 47.9 L 46.5 47.9 L 43 54 L 46.5 60.1 L 53.5 60.1 Z" opacity="0.55">
+          <animateTransform
+            attributeName="transform"
+            type="rotate"
+            from="0 50 54"
+            to="60 50 54"
+            dur="7s"
+            repeatCount="indefinite"
+          />
+        </path>
+        <circle cx="50" cy="54" r="1" fill="currentColor" stroke="none">
+          <animate
+            attributeName="opacity"
+            values="0.1; 0.9; 0.1"
+            dur="6s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
         </circle>
+      </g>
+    </svg>
+  );
+}
+
+function TrueCursorArt() {
+  return (
+    <svg viewBox="0 0 100 100" className="w-full aspect-[4/3]" xmlns="http://www.w3.org/2000/svg">
+      <g stroke="currentColor" strokeWidth="0.5" fill="none">
+        <path d="M 10 50 L 16 44.7 L 22 54.5 L 28 46.5 L 34 52.75 L 40 48 L 46 51.5 L 52 48.9 L 58 50.75 L 64 49.5 L 70 50.3 L 76 49.8 L 80 50" opacity="0.8">
+          <animate
+            attributeName="d"
+            values="M 10 50 L 16 44.7 L 22 54.5 L 28 46.5 L 34 52.75 L 40 48 L 46 51.5 L 52 48.9 L 58 50.75 L 64 49.5 L 70 50.3 L 76 49.8 L 80 50; M 10 50 L 16 55.3 L 22 45.5 L 28 53.5 L 34 47.25 L 40 52 L 46 48.5 L 52 51.1 L 58 49.25 L 64 50.5 L 70 49.7 L 76 50.2 L 80 50; M 10 50 L 16 46.8 L 22 52.7 L 28 47.9 L 34 51.65 L 40 48.8 L 46 50.9 L 52 49.3 L 58 50.5 L 64 49.7 L 70 50.2 L 76 49.9 L 80 50; M 10 50 L 16 44.7 L 22 54.5 L 28 46.5 L 34 52.75 L 40 48 L 46 51.5 L 52 48.9 L 58 50.75 L 64 49.5 L 70 50.3 L 76 49.8 L 80 50"
+            dur="5s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </path>
+        <path d="M 46 50 L 52 46.8 L 58 52.8 L 64 47.4 L 70 52.4 L 76 48 L 82 51" opacity="0.16">
+          <animate
+            attributeName="d"
+            values="M 46 50 L 52 46.8 L 58 52.8 L 64 47.4 L 70 52.4 L 76 48 L 82 51; M 46 50 L 52 53.2 L 58 47.2 L 64 52.6 L 70 47.6 L 76 52 L 82 49; M 46 50 L 52 46.8 L 58 52.8 L 64 47.4 L 70 52.4 L 76 48 L 82 51"
+            dur="5s"
+            begin="-2.5s"
+            calcMode="spline"
+            keySplines="0.4 0 0.6 1; 0.4 0 0.6 1"
+            repeatCount="indefinite"
+          />
+        </path>
+        <path
+          d="M 80 50 L 80 61 L 83.2 58.2 L 85.2 62.6 L 86.9 61.9 L 84.9 57.6 L 89 57.2 Z"
+          strokeLinejoin="round"
+          opacity="0.9"
+        />
       </g>
     </svg>
   );
@@ -69,6 +199,7 @@ function SadiephotoArt() {
 const artMap: Record<string, () => React.ReactNode> = {
   nox: () => <NoxArt />,
   sadiephoto: () => <SadiephotoArt />,
+  truecursor: () => <TrueCursorArt />,
 };
 
 export default function Projects() {
