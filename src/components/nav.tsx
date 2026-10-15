@@ -17,16 +17,22 @@ export default function Nav() {
       </Link>
       <div className="hidden md:flex items-center justify-center gap-8">
         <Link
-          href="#work"
+          href="/#work"
           className="pointer-events-auto hover:text-foreground/90 transition-colors"
         >
           WORK
         </Link>
         <Link
-          href="#about"
+          href="/#about"
           className="pointer-events-auto hover:text-foreground/90 transition-colors"
         >
           ABOUT
+        </Link>
+        <Link
+          href="/writing"
+          className="pointer-events-auto hover:text-foreground/90 transition-colors"
+        >
+          WRITING
         </Link>
       </div>
       <div className="flex items-center justify-end gap-3">
