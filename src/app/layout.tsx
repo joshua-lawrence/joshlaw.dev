@@ -39,9 +39,9 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <div className="mx-auto max-w-2xl px-5 min-h-screen">
+          <div className="mx-auto flex min-h-screen max-w-2xl flex-col px-5">
             <Nav />
-            <div className="w-full z-50">{children}</div>
+            <div className="w-full z-50 flex-1">{children}</div>
             <Footer />
           </div>
         </ThemeProvider>
